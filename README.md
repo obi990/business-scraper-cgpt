@@ -11,6 +11,7 @@ This repository contains the foundational design and starter implementation for 
 - `scripts/codex_instructions.md` — implementation guide for expanding the MVP.
 
 ## Quick Start
+1. Install backend dependencies (creates a local SQLite DB at `backend/leads.db`):
 1. Install backend dependencies:
    ```bash
    cd backend
@@ -18,6 +19,18 @@ This repository contains the foundational design and starter implementation for 
    source .venv/bin/activate
    pip install -r requirements.txt
    ```
+2. Run the backend API locally (no hosted website needed):
+   ```bash
+   uvicorn backend.app:app --reload
+   ```
+   - Health check: `GET http://localhost:8000/health`
+   - Trigger a scrape and persist leads: `POST http://localhost:8000/scrape {"industry": "restaurants", "city": "Austin"}`
+   - Browse leads: `GET http://localhost:8000/leads`
+3. Run a one-off scrape via CLI (prints normalized leads to stdout):
+   ```bash
+   python -m backend.scraper --industry "restaurants" --city "Austin, TX"
+   ```
+4. Install frontend dependencies and start the dev server:
 2. Run a sample scrape (prints normalized leads to stdout):
    ```bash
    python scraper.py --industry "restaurants" --city "Austin, TX"
