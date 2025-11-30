@@ -12,6 +12,7 @@ This repository contains the foundational design and starter implementation for 
 
 ## Quick Start
 1. Install backend dependencies (creates a local SQLite DB at `backend/leads.db`):
+1. Install backend dependencies:
    ```bash
    cd backend
    python -m venv .venv
@@ -30,6 +31,11 @@ This repository contains the foundational design and starter implementation for 
    python -m backend.scraper --industry "restaurants" --city "Austin, TX"
    ```
 4. Install frontend dependencies and start the dev server:
+2. Run a sample scrape (prints normalized leads to stdout):
+   ```bash
+   python scraper.py --industry "restaurants" --city "Austin, TX"
+   ```
+3. Install frontend dependencies and start the dev server:
    ```bash
    cd frontend
    npm install
